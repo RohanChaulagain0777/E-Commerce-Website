@@ -1,20 +1,20 @@
-
+import { Link } from "react-router-dom"
+import womenProducts from "../Products/WomenCollection/WomenCols"
 
 const Women = () => {
   return (
-    <div>
-      <div className="flex justify-around items-center flex-wrap mt-10 mb-20">
-      <div className="featuredProductContainer">
-          <img src="src\assets\women.jfif" className="productImg"/>
-          <h4 className="font-semibold text-lg mt-2">Women's summer Dress</h4>
-          <p>$79.99</p>
-        </div>
-        <div className="featuredProductContainer">
-          <img src="src\assets\milada-vigerova-p8Drpg_duLw-unsplash.jpg" className="productImg" />
-          <h4 className="font-semibold text-lg mt-2">Casual Shirt</h4>
-          <p>$59.99</p>
-        </div>
-    </div>
+    <div className="flex justify-around items-center flex-wrap mt-10 mb-20">
+      {womenProducts.map((womenProduct) =>(
+        <Link
+        id={womenProduct.id}
+        to={`/women/${womenProduct.id}`}
+        className="featuredProductContainer"
+        >
+          <img src={womenProduct.image}  className="productImg"/>
+          <h2 className="font-semibold text-lg mt-2">{womenProduct.name}</h2>
+          <p>₹{womenProduct.price}</p>
+        </Link>      
+      ))}
     </div>
   )
 }

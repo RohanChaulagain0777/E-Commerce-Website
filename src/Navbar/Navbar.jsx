@@ -24,7 +24,7 @@ const Navbar = () => {
           <input type="text" placeholder="Search" className="border border-gray-400 px-3 py-1 pr-9 rounded-2xl w-40"/>
           <button className="absolute right-3 navbar2Btn" ><i className="fa-solid fa-magnifying-glass text-sm"></i></button>
         </div>
-        <button className="navbar2Btn"><i className="fa-solid fa-bag-shopping"></i></button>
+        <NavLink to="/cart" className="navbar2Btn"><i className="fa-solid fa-bag-shopping"></i></NavLink>
       </div>
     </nav>
   )
