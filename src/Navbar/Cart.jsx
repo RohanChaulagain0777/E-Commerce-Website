@@ -1,11 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../Redux/counterSlice";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../Redux/counterSlice";
 
 const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartItems = useSelector((state) => state.cart.items);
+
+    const handleCheckout = () =>{
+      dispatch(clearCart());
+      alert("Thank you for your purchase!");
+    }
 
   return (
     <div className="p-6 min-h-screen">
@@ -48,7 +54,7 @@ const Cart = () => {
                   Total: ₹{cartItems.reduce((total, item) => total + parseInt(item.price), 0)}
                 </p>
               </div>
-              <button className="bg-black text-white px-8 py-2 rounded hover:bg-gray-800 font-semibold">
+              <button className="bg-black text-white px-8 py-2 rounded hover:bg-gray-800 font-semibold" onClick={handleCheckout}>
                 Checkout
               </button>
             </div>
